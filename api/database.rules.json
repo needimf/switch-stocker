@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "state": {
+      ".read": true,
+      ".write": "auth.id === 'my-state-updater'"
+    },
+    "server": {
+      "heartbeat": {
+        ".read": true,
+        ".write": "newData.val() > (now - 500) && newData.val() < (now + 500)",
+        ".validate": "newData.isNumber()"
+      }
+    }
+  }
+}
